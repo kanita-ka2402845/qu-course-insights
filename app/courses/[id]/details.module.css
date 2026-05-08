@@ -2,11 +2,18 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+body {
+    background-image: linear-gradient(to top, #f4ccc1 0%, #e0ade0 100%); /* Example hex color */
+    margin: 0;
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+
 .page {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem 1rem;
-    background-image: linear-gradient(to top, #dfb5a9 0%, #e7c0e7 100%);
+
 }
 
 .hero {
