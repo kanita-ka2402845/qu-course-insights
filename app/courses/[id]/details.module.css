@@ -1,0 +1,164 @@
+:global(*) {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    background-image: linear-gradient(to top, #dfb5a9 0%, #e7c0e7 100%);
+}
+
+.hero {
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: #fff;
+}
+
+.back {
+    display: inline-block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.back:hover {
+    color: #fff;
+}
+
+.code {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    opacity: 0.8;
+    margin: 0 0 4px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
+.bottomLine {
+    font-size: 14px;
+    opacity: 0.88;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    color: #fff;
+    font-weight: 500;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card {
+    background: #fff;
+    border: 0.5px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+}
+
+.sectionTitle {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 10px;
+}
+
+.gradeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.gradeRow:last-child {
+    border-bottom: none;
+}
+
+.gradeLabel {
+    color: #555;
+}
+
+.gradeVal {
+    font-weight: 500;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.gradeNote {
+    font-size: 11px;
+    color: #999;
+    font-weight: 400;
+}
+
+.bullet {
+    font-size: 14px;
+    color: #555;
+    padding: 5px 0;
+    line-height: 1.5;
+    border-bottom: 0.5px solid #f0f0f0;
+    padding-left: 12px;
+    position: relative;
+}
+
+.bullet:last-child {
+    border-bottom: none;
+}
+
+.bullet::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.semesterCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.semesterCard .sectionTitle {
+    margin: 0;
+}
+
+.semesters {
+    display: flex;
+    gap: 6px;
+}
+
+.semPill {
+    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 0.5px solid #ddd;
+    color: #555;
+}
