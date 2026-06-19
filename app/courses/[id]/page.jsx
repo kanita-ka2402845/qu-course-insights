@@ -16,14 +16,36 @@ export default async function CourseDetailPage({ params }) {
                 <p className={styles.code}>{course.code}</p>
                 <h1 className={styles.name}>{course.name}</h1>
                 <p className={styles.bottomLine}>{course.bottomLine}</p>
+                     <div className={styles.quickFacts}>
+                        <span className={styles.fact}>{course.CH} credit hours</span>
+                        <span className={styles.fact}>{course.category}</span>
+                        {course.prerequsites && course.prerequsites.length > 0 && (
+                            <span className={styles.fact}>
+                            Prereq: {course.prerequsites.join(', ')}
+                            </span>
+                        )}
+                        </div>
                 <div className={styles.tags}>
                     {course.tags.map(tag => (
                         <span key={tag} className={styles.tag}>{tag}</span>
                     ))}
                 </div>
-            </div>
+           <p className={styles.disclaimer}>
+                    Disclaimer: This reflects a typical course structure. Grade breakdown and content may vary by instructor and semester.
+                    </p> 
 
+            </div>
+                   
             <div className={styles.content}>
+
+                 <div className={`${styles.card} ${styles.semesterCard}`}>
+                    <p className={styles.sectionTitle}>Offered in</p>
+                    <div className={styles.semesters}>
+                        {course.semesters.map(sem => (
+                            <span key={sem} className={styles.semPill}>{sem}</span>
+                        ))}
+                    </div>
+                </div>
 
                 <div className={styles.card}>
                     <p className={styles.sectionTitle}>Grade breakdown — Theory</p>
@@ -50,7 +72,9 @@ export default async function CourseDetailPage({ params }) {
                                 <span className={styles.gradeLabel}>
                                     {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
                                 </span>
-                                <span className={styles.gradeVal}>{val.weight}%</span>
+                                <span className={styles.gradeVal}>{val.weight}%{val.counted && (
+                                    <span className={styles.gradeNote}>best {val.counted} of {val.total}</span>
+                                )}</span>
                             </div>
                         ))}
                     </div>
@@ -64,20 +88,13 @@ export default async function CourseDetailPage({ params }) {
                 </div>
 
                 <div className={styles.card}>
-                    <p className={styles.sectionTitle}>Insider stuff</p>
-                    {course.insiderStuff.map((point, i) => (
+                    <p className={styles.sectionTitle}>Insider Info</p>
+                    {course.insiderInfo.map((point, i) => (
                         <div key={i} className={styles.bullet}>{point}</div>
                     ))}
                 </div>
 
-                <div className={`${styles.card} ${styles.semesterCard}`}>
-                    <p className={styles.sectionTitle}>Offered in</p>
-                    <div className={styles.semesters}>
-                        {course.semesters.map(sem => (
-                            <span key={sem} className={styles.semPill}>{sem}</span>
-                        ))}
-                    </div>
-                </div>
+               
 
             </div>
         </main>

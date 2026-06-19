@@ -1,33 +1,40 @@
 [
-    {
-        "id": "cmps-323",
-        "code": "CMPS 323",
-        "name": "Algorithms",
-        "bottomLine": "Concept-heavy course where deep understanding and practice matter more than coding.",
-        "tags": [
-            "Theory-Heavy",
-            "Exam-Based",
-            "Problem-Solving",
-            "Low Coding"
-        ],
-        "semesters": [
-            "Spring"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "Theory-heavy course",
-            "Less coding, more problem solving"
-        ],
-        "insiderStuff": [
-            "Builds on concepts from Data Structures",
-            "Assessments carry significant weight",
-            "Homework is coding-heavy and requires strong algorithm understanding"
-        ]
+ {
+    "id": "cmps-323",
+    "code": "CMPS 323",
+    "name": "Design & Analysis of Algorithms",
+    "CH": "3",
+    "category" : "CS Course",
+    "prerequsites": ["CMPS 303", "CMPS 205"],
+    "bottomLine": "Concept-heavy course where deep understanding and practice matter more than coding.",
+    "tags": ["Theory-Heavy", "Exam-Based", "Problem-Solving", "Low Coding"],
+    "semesters": ["Spring"],
+    "assessment": {
+        "theory": {
+            "homework": {"weight": 10, "total": 2, "counted": 2},
+            "quizzes": {"weight": 20, "total": 2, "counted": 2},
+            "midterm": { "weight": 35 },
+            "final": { "weight": 35 }
+        }
     },
+    "whatToExpect": [
+      "Theory Heavy",
+      "Less coding, more problem solving"
+    ],
+    "insiderInfo": [
+      "Builds on data structures course",
+      "Massive weightage for each assessment",
+      "Both HWs are coding heavy and require thorough understanding of algorithms learned"
+    ]
+  }
+,
     {
         "id": "cmps-350",
         "code": "CMPS 350",
         "name": "Web Development",
+        "CH": "3",
+        "prerequsites": ["CMPS 251"],
+        "category" : "CS Course",
         "bottomLine": "Full-stack, practical and lab-heavy course.",
         "tags": [
             "Lab-Based",
@@ -46,7 +53,7 @@
         "projectPhase2": { "weight": 10 }
     },
     "lab": {
-        "assignments": { "weight": 10 },
+        "assignments": { "weight": 10 , "total": 4, "counted": 3},
         "midtermLab": { "weight": 15 },
         "finalLab": { "weight": 15 }
     }
@@ -57,147 +64,183 @@
             "Lab-focused, hands-on learning",
             "Lab includes midterm and final"
         ],
-        "insiderStuff": [
+        "insiderInfo": [
             "Builds full-stack development skills",
             "Debugging is part of the learning process",
             "Concepts are easier when practiced, not just read",
             "Concepts can pile up if you fall behind"
         ]
     },
-    {
-        "id": "cmps-351",
-        "code": "CMPS 351",
-        "name": "Database Systems",
-        "bottomLine": "Conceptually simple but requires strong understanding and practice to handle tricky questions.",
-        "tags": [
-            "Conceptual",
-            "Practice-Oriented",
-            "Mixed Assessment"
-        ],
-        "semesters": [
-            "Spring"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "Mix of theory and practical work",
-            "Linked lab content may differ from lectures"
-        ],
-        "insiderStuff": [
-            "Lab final is comprehensive, so revise consistently",
-            "Questions can be trickier than the content suggests",
-            "Practice matters more than memorizing theory",
-            "Instructor tips and problem-solving techniques help a lot",
-            "Strong conceptual understanding goes a long way"
-        ]
+  {
+"id": "cmps-351",
+"code": "CMPS 351",
+"name": "Fundamentals of Database",
+"CH": "4",
+    	"prerequsites": ["CMPS 251"],
+"category" : "CS Course",
+"bottomLine": "Conceptually simple but requires strong understanding and practice to handle tricky questions.",
+"tags": ["Conceptual", "Practice-Oriented", "Mixed-Assessment"],
+"semesters": ["Spring"],
+"assessment":{
+      "theory": {
+"homework": {"weight": 5, "total": 2, "counted": 1},
+        "quizzes": {"weight": 15, "total": 4, "counted": 3},
+        "midterm": { "weight": 25 },
+        "final": { "weight": 30 }
+      },
+      "lab": {
+        "quizzes": {"weight": 5, "total": 2, "counted": 2},
+        "labProject": { "weight": 10 },
+        "finalLab": { "weight": 10 }
+      }
     },
-    {
-        "id": "cmpe-263",
-        "code": "CMPE 263",
-        "name": "Computer Architecture",
-        "bottomLine": "Dense theoretical course that becomes manageable with consistent study and concept clarity.",
-        "tags": [
-            "Theory-Heavy",
-            "Quiz-Based",
-            "Conceptual"
-        ],
-        "semesters": [
-            "Spring"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "Hardware-focused topics like CPU, memory, and instruction sets",
-            "No lab or assignments, mainly quiz-based",
-            "Lecture project carries significant weight"
-        ],
-        "insiderStuff": [
-            "Concepts from CMPS 205 are helpful",
-            "Includes some calculations",
-            "Content is dense but manageable with consistency",
-            "Avoid cramming and study regularly",
-            "Clarifying confusing concepts early helps a lot"
-        ]
-    },
-    {
-        "id": "cmps-303",
-        "code": "CMPS 303",
-        "name": "Data Structures",
-        "bottomLine": "A foundational course combining coding and theory where consistent practice is essential.",
-        "tags": [
-            "Core Course",
-            "Coding + Theory",
-            "Problem-Solving",
-            "Practice-Heavy"
-        ],
-        "semesters": [
-            "Fall",
-            "Spring"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "Core programming course",
-            "Includes quizzes and limited assignments",
-            "Problem-solving intensive",
-            "Mix of theoretical and coding assessments"
-        ],
-        "insiderStuff": [
-            "Builds heavily on Java knowledge from OOP",
-            "Also offered online",
-            "Memorizing code is not enough—practice is essential",
-            "Strong focus on concepts and theory, not just coding",
-            "Performance depends on consistency and self-study effort"
-        ]
-    },
-    {
-        "id": "cmps-310",
-        "code": "CMPS 310",
-        "name": "Software Engineering",
-        "bottomLine": "Focuses on software design and concepts, with practical application mainly in the lab project.",
-        "tags": [
-            "Conceptual",
-            "Project-Based",
-            "Low Coding",
-            "Design-Focused"
-        ],
-        "semesters": [
-            "Fall"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "No assessments besides exams",
-            "Lab includes project only",
-            "Focus on conceptual software design understanding"
-        ],
-        "insiderStuff": [
-            "Minimal coding and more diagram-based work",
-            "Lab is where concepts are applied practically",
-            "Exams require strong conceptual understanding"
-        ]
-    },
-    {
-        "id": "cmps-200",
-        "code": "CMPS 200",
-        "name": "Computer Ethics",
-        "bottomLine": "A lighter, discussion-based course that still requires careful understanding of expectations.",
-        "tags": [
-            "Theory-Based",
-            "Writing-Focused",
-            "Low Workload",
-            "Discussion-Based"
-        ],
-        "semesters": [
-            "Fall"
-        ],
-        "assessment": null,
-        "whatToExpect": [
-            "No coding, mainly written coursework",
-            "Discussion-based and theory-focused",
-            "One class per week"
-        ],
-        "insiderStuff": [
-            "Often considered an easy A, but still requires effort",
-            "Depends heavily on instructor style",
-            "Understanding answer expectations is important",
-            "Limited coursework leaves less room for mistakes"
-        ]
+"whatToExpect": [
+      "Mix of theory and practical work",
+      "Linked lab’s content may differ from lectures "
+    ],
+    "insiderInfo": [
+      "Linked lab final exam is comprehensive, so keep revising concepts ",
+      "Course content may seem simple and but questions can be tricky ",
+      "Don’t be deceived by theory, practice what you learn ",
+      "Pay attention to instructor tips and problem-solving techniques",
+      "Strong understanding of concepts will go a long way "
+    ]
+}
+,
+  {
+"id": "cmpe-263",
+"code": "CMPE 263",
+"name": "Computer Architecture I",
+"CH": "3",
+    	"prerequsites": ["CMPS 151", "CMPS 205"],
+        "category" : "CE Course",
+"bottomLine": "Dense theoretical course that becomes manageable with consistent study and concept clarity.",
+"tags": ["Theory-Heavy", "Quiz-Based", "Conceptual"],
+"semesters": ["Spring"],
+"assessment": {
+    "theory": {
+        "quizzes": {"weight": 20, "total": 4, "counted": 3},
+        "project": {"weight": 20},
+        "midterm": {"weight": 25},
+        "final": {"weight": 35}
     }
+},
+"whatToExpect": [
+      "Hardware-focused- topics like CPU, memory and instruction sets",
+      "No lab, no assignments- just quizzes",
+      "Lecture project carries significant weight"
+    ],
+    "insiderInfo": [
+      "Concepts from CMPS 205 will help",
+      "Requires a tad bit of calculations, when most of the time calculators aren’t allowed",
+      "Content is dense but manageable with consistency",
+      "Regular study is important—avoid cramming",
+      "Reviewing and clarifying unclear topics helps a lot"
+    ]
+}
+,
+  {
+"id": "cmps-303",
+"code": "CMPS 303",
+"name": "Data Structures",
+"CH": "4",
+    	"prerequsites": ["CMPS 251"],
+"category" : "CS Course",
+"bottomLine": "A foundational course combining coding and theory where consistent practice is essential.",
+"tags": ["Core Course", "Coding + Theory", "Problem-Solving","Practice-Heavy"],
+"semesters": ["Fall", "Spring"],
+"assessment":{
+      "theory": {
+"homework": {"weight": 5, "total": 1, "counted": 1},
+        "quizzes": {"weight": 15, "total": 4, "counted": 3},
+        "midterm": {"weight": 30},
+        "final": {"weight": 30}
+      },
+      "lab": {
+        "midtermLab": {"weight": 10},
+        "finalLab": {"weight": 10},
+        "project": {"weight": 10}
+      }
+    },
+"whatToExpect": [
+      "Core programming course",
+      "Quizzes and limited assignments",
+      "Problem solving intensive",
+      "Mix of theoretical and coding assessments",
+      "Biweekly lab for online section"
+    ],
+    "insiderInfo": [
+      "Builds more on Java knowledge from OOP",
+      "You cannot memorize code, understanding concepts through practice is key",
+      "Not purely coding—strong focus on concepts and theory",
+      "Performance depends on consistency or self-study efforts", 
+      "Online section follows weekly prerecorded modules, making it flexible but highly self-paced"
+    ]
+}
+,
+  {
+"id": "cmps-310",
+"code": "CMPS 310",
+"name": "Software Engineering",
+"CH": "4",
+    	"prerequsites": ["CMPS 251"],
+"category" : "CS Course",
+"bottomLine": "Focuses on software design and concepts, with practical application mainly in the lab project.",
+"tags": ["Conceptual", "Project-Based", "Low Coding","Design-Focused"],
+"semesters": ["Fall"],
+    "assessment":{
+      "theory": {
+        "midterm": {"weight": 30},
+        "final": {"weight": 30}
+      },
+      "lab": {
+        "project Milestone 1": {"weight": 12},
+        "project Milestone 2": {"weight": 13},
+        "project Milestone 3": {"weight": 5},
+        "labExercises": {"weight": 10}
+      }
+    },
+"whatToExpect": [
+      "No assessments besides exams",
+      "Lab includes project only",
+      "Conceptual understanding of overall software design"
+    ],
+    "insiderInfo": [
+      "Minimal coding, more diagram making",
+      "Lab is where you apply concepts",
+      "Exams require thorough understanding of concepts"
+    ]
+}
+ ,
+   {
+"id": "cmps-200",
+"code": "CMPS 200",
+"name": "Computer Ethics",
+"CH": "1",
+    	"prerequsites": [],
+"category" : "CS Course",
+"bottomLine": "A lighter, discussion-based course that still requires careful understanding of expectations.",
+"tags": ["Theory-Based", "Writing-Focused", "Low workload", "Discussion-Based"],
+"semesters": ["Fall"],
+"assessment": {
+  "theory": {
+    "Homework&CaseDiscussions": {"weight": 20},
+    "project": {"weight": 20},
+    "midterm": {"weight": 25},
+    "final": {"weight": 35}
+  }
+},
+"whatToExpect": [
+      " One class per week",
+      "No coding, mainly written course work ",
+      "Discussion-based and theory focused"
+    ],
+    "insiderInfo": [
+      "Considered an easy A, but still requires effort ",
+      "Depends heavily on instructor",
+      "Understanding expectations for answers is important",
+      "Limited coursework means less room for mistakes"
+    ]
+}
+
 ]
