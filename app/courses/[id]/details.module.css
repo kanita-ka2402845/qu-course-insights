@@ -4,7 +4,6 @@
 
 body {
     background-image: linear-gradient(to top, #f4ccc1 0%, #e0ade0 100%);
-    /* Example hex color */
     margin: 0;
     min-height: 100vh;
     background-attachment: fixed;
@@ -26,7 +25,7 @@ body {
 
 .back {
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     margin-bottom: 1rem;
@@ -64,7 +63,7 @@ body {
 }
 
 .tag {
-    font-size: 11px;
+    font-size: 13px;
     padding: 3px 10px;
     border-radius: 20px;
     border: 1.5px solid rgba(255, 255, 255, 0.55);
@@ -197,3 +196,29 @@ body {
   
   
 }
+
+.reportSection {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 0.5px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reportText {
+  font-size: 15px;
+  color: #fffefe;
+}
+
+.reportLink {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f8f8f8;
+  text-decoration: none;
+}
+
+.reportLink:hover {
+  text-decoration: underline;
+}
+

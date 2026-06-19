@@ -23,3 +23,38 @@
     max-width: 960px;
     margin: 0 auto;
   }
+
+  .filterBar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 0.5px solid #ddd;
+  font-size: 13px;
+}
+
+.select {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 0.5px solid #ddd;
+  font-size: 13px;
+  background: #fff;
+  color: #888
+}
+
+.noResults {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 2rem 0;
+}

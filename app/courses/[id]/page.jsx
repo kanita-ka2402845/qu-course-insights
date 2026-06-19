@@ -18,7 +18,7 @@ export default async function CourseDetailPage({ params }) {
                 <p className={styles.bottomLine}>{course.bottomLine}</p>
                      <div className={styles.quickFacts}>
                         <span className={styles.fact}>{course.CH} credit hours</span>
-                        <span className={styles.fact}>{course.category}</span>
+                        <span className={styles.fact}>{course.category} Course</span>
                         {course.prerequsites && course.prerequsites.length > 0 && (
                             <span className={styles.fact}>
                             Prereq: {course.prerequsites.join(', ')}
@@ -94,9 +94,22 @@ export default async function CourseDetailPage({ params }) {
                     ))}
                 </div>
 
-               
+               <div className={styles.reportSection}>
+  <p className={styles.reportText}>
+    Noticed something different this semester?
+  </p>
+  <a
+    href={`https://docs.google.com/forms/d/e/1FAIpQLSeRjnBNnv8z2LMs4EHJYG81GCdWRJO9eH7JF5bw6gM-ZCVKig/viewform?usp=pp_url&entry.111894480=${course.code}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.reportLink}
+  >
+    Let us know →
+  </a>
+</div>
 
             </div>
         </main>
     )
 }
+
