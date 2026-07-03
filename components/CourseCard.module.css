@@ -46,17 +46,45 @@
 }
 
 .btn {
-    margin-top: 1rem;
     display: inline-block;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     color: #a9a6a6;
     text-decoration: none;
     border: 1.5px solid rgba(255, 255, 255, 0.6);
     border-radius: 20px;
-    padding: 5px 14px;
-    align-self: flex-start;
+    padding: 5px 5px;
     transition: background 0.2s ease;
+    text-align: center;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.btnOutline {
+    font-size: 11px;
+    font-weight: 500;
+    color: #a9a6a6;
+    text-decoration: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 5px 5px;
+    transition: background 0.2s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn,
+.btnOutline {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btnOutline:hover {background: rgba(223, 215, 215, 0.2);
 }
 
 .btn:hover {

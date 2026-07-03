@@ -10,9 +10,15 @@ export default function CourseCard({ course }) {
                 <h3 className={styles.name}>{course.name}</h3>
                 <p className={styles.bottomLine}>{course.bottomLine}</p>
             </div>
+
+            <div className={styles.cardActions}>
             <Link href={`/courses/${course.id}`} className={styles.btn}>
-  View details
-</Link>
+                    View details
+                </Link>
+                <Link href={`/courses/${course.id}/insights`} className={styles.btnOutline}>
+                     Student Insights
+                 </Link>
+            </div>
         </div>
     )
 }

@@ -54,6 +54,8 @@ export default function CoursesPage() {
           <option value="All">All semesters</option>
           <option value="Fall">Fall</option>
           <option value="Spring">Spring</option>
+          <option value="Fall & Spring">Fall & Spring</option>
+          <option value="Summer">Summer</option>
         </select>
 
         <select value={category} onChange={e => setCategory(e.target.value)} className={styles.select}>

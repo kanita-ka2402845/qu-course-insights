@@ -2,6 +2,7 @@ import courses from '@/data/courses.json'
 import styles from './details.module.css'
 import Link from 'next/link'
 
+
 export default async function CourseDetailPage({ params }) {
     const { id } = await params
     const course = courses.find(c => c.id === id)
