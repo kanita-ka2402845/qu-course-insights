@@ -13,7 +13,6 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #888;
-    margin: 0 0 1.25rem;
   }
   
   .grid {
@@ -57,4 +56,27 @@
   color: #999;
   font-size: 14px;
   padding: 2rem 0;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto 1.25rem;
+}
+
+.contributeBtn {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  border: 0.5px solid #ddd;
+  border-radius: 20px;
+  padding: 5px 14px;
+  background: #fff;
+  transition: background 0.2s ease;
+}
+
+.contributeBtn:hover {
+  background: #f5f5f5;
 }

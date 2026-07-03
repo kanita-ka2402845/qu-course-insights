@@ -39,7 +39,17 @@ export default function CoursesPage() {
 
   return (
     <main className={styles.page}>
-      <h2 className={styles.heading}>CS Courses</h2>
+      <div className={styles.pageHeader}>
+        <h2 className={styles.heading}>CS Courses</h2>
+        <a
+          href="YOUR_GOOGLE_FORM_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.contributeBtn}
+        >
+          + Help us add more courses
+        </a>
+      </div>
 
       <div className={styles.filterBar}>
         <input
