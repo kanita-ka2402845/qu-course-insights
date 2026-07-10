@@ -19,7 +19,7 @@ export default function CoursesPage() {
 
   const allTags = useMemo(() => {
     const set = new Set()
-    courses.forEach(c => c.tags.forEach(t => set.add(t)))
+    courses.forEach(c => c.standardTags.forEach(t => set.add(t)))
     return ['All', ...Array.from(set).sort()]
   }, [])
 
@@ -31,7 +31,7 @@ export default function CoursesPage() {
           c.code.toLowerCase().includes(search.toLowerCase())
         const matchesSemester = semester === 'All' || c.semesters.includes(semester)
         const matchesCategory = category === 'All' || c.category === category
-        const matchesTag = tag === 'All' || c.tags.includes(tag)
+        const matchesTag = tag === 'All' || c.standardTags.includes(tag)
         return matchesSearch && matchesSemester && matchesCategory && matchesTag
       })
       .sort((a, b) => extractNumber(a.code) - extractNumber(b.code))
@@ -42,7 +42,7 @@ export default function CoursesPage() {
       <div className={styles.pageHeader}>
         <h2 className={styles.heading}>CS Courses</h2>
         <a
-          href="YOUR_GOOGLE_FORM_URL"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdq-uvYbBi1MxUlstF_XhkejtBGyPNxw0zd4PSxjjGrwmdoNA/viewform?usp=publish-editor"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.contributeBtn}
@@ -90,6 +90,28 @@ export default function CoursesPage() {
           ))}
         </div>
       )}
+
+      <div className={styles.comingSoon}>
+  <p className={styles.comingSoonText}>More CS courses coming soon!! Stay tuned!</p>
+</div>
+
+<div className={styles.majorRequest}>
+  <p className={styles.majorTitle}>Don't see your major?</p>
+  <p className={styles.majorSub}>
+    We're expanding beyond CS. If you'd like to see your major on QU Course Insights — 
+    or want to contribute course info for your department — let us know.
+  </p>
+  
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfrXipA8bTMI15YUM4dJlYsuh3w4cxo6ZWHgo91e2uGTwvppg/viewform?usp=publish-editor"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.majorBtn}
+  >
+    Request your major →
+  </a>
+</div>
+
     </main>
   )
 }

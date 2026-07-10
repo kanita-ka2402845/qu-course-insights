@@ -7,7 +7,8 @@
     "category" : "CS",
     "prerequsites": ["CMPS 303", "CMPS 205"],
     "bottomLine": "Concept-heavy course where deep understanding and practice matter more than coding.",
-    "tags": ["Theory-Heavy", "Exam-Based", "Problem-Solving", "Low Coding"],
+    "standardTags": ["Theory-Heavy", "Exam-Based"],
+    "tags": [ "Problem-Solving", "Low Coding", "Theory-Heavy", "Exam-Based"],
     "semesters": ["Spring"],
     "assessment": {
         "theory": {
@@ -37,9 +38,11 @@
         "category" : "CS",
         "bottomLine": "Full-stack, practical and lab-heavy course.",
         "tags": [
-            "Lab-Based",
             "Hands-On",
-            "Full-Stack"
+            "Full-Stack","Lab-Based"
+        ],
+        "standardTags": [
+            "Lab-Based"
         ],
         "semesters": [
             "Spring"
@@ -79,7 +82,8 @@
     	"prerequsites": ["CMPS 251"],
 "category" : "CS",
 "bottomLine": "Conceptually simple but requires strong understanding and practice to handle tricky questions.",
-"tags": ["Conceptual", "Practice-Oriented", "Mixed-Assessment"],
+"tags": ["Conceptual", "Mixed-Assessment","Practice-Oriented"],
+"standardTags":["Practice-Oriented", "Conceptual"],
 "semesters": ["Spring"],
 "assessment":{
       "theory": {
@@ -115,7 +119,8 @@
     	"prerequsites": ["CMPS 151", "CMPS 205"],
         "category" : "CE",
 "bottomLine": "Dense theoretical course that becomes manageable with consistent study and concept clarity.",
-"tags": ["Theory-Heavy", "Quiz-Based", "Conceptual"],
+"tags": ["Quiz-Based", "Conceptual","Theory-Heavy"],
+"standardTags":["Theory-Heavy", "Conceptual"],
 "semesters": ["Spring"],
 "assessment": {
     "theory": {
@@ -148,6 +153,7 @@
 "category" : "CS",
 "bottomLine": "A foundational course combining coding and theory where consistent practice is essential.",
 "tags": ["Core Course", "Coding + Theory", "Problem-Solving","Practice-Heavy"],
+"standardTags":["Practice-Heavy"],
 "semesters": ["Fall", "Spring"],
 "assessment":{
       "theory": {
@@ -186,7 +192,8 @@
     	"prerequsites": ["CMPS 251"],
 "category" : "CS",
 "bottomLine": "Focuses on software design and concepts, with practical application mainly in the lab project.",
-"tags": ["Conceptual", "Project-Based", "Low Coding","Design-Focused"],
+"tags": ["Conceptual","Project-Based", "Low Coding","Design-Focused"],
+"standardTags":["Project-Based", "Conceptual"],
 "semesters": ["Fall"],
     "assessment":{
       "theory": {
@@ -220,7 +227,8 @@
     	"prerequsites": [],
 "category" : "CS",
 "bottomLine": "A lighter, discussion-based course that still requires careful understanding of expectations.",
-"tags": ["Theory-Based", "Writing-Focused", "Low workload", "Discussion-Based"],
+"tags": ["Theory-Heavy", "Writing-Focused", "Low workload", "Discussion-Based"],
+"standardTags":["Theory-Heavy", "Low workload"],
 "semesters": ["Fall"],
 "assessment": {
   "theory": {
