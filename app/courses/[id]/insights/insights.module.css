@@ -314,3 +314,8 @@ body {
 
 .helpfulBtn:hover { background: #f5f5f5; }
 
+.helpfulActive {
+  background: #f4ccc1;
+  border-color: #e0ade0;
+  color: #555;
+}

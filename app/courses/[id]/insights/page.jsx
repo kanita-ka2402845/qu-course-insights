@@ -63,15 +63,30 @@ export default function InsightsPage() {
     setForm({ content: '', type: '', instructor: '', semester: 'Fall', year: 2025 })
   }
 
-  const handleHelpful = async (insightId, current) => {
-    await supabase
-      .from('insights')
-      .update({ helpful_count: current + 1 })
-      .eq('id', insightId)
-    setInsights(prev =>
-      prev.map(i => i.id === insightId ? { ...i, helpful_count: current + 1 } : i)
-    )
+const [likedPosts, setLikedPosts] = useState(new Set())
+
+const handleHelpful = async (insightId, current) => {
+  const alreadyLiked = likedPosts.has(insightId)
+
+  const newCount = alreadyLiked ? current - 1 : current + 1
+  const newLiked = new Set(likedPosts)
+
+  if (alreadyLiked) {
+    newLiked.delete(insightId)
+  } else {
+    newLiked.add(insightId)
   }
+
+  setLikedPosts(newLiked)
+  setInsights(prev =>
+    prev.map(i => i.id === insightId ? { ...i, helpful_count: newCount } : i)
+  )
+
+  await supabase
+    .from('insights')
+    .update({ helpful_count: newCount })
+    .eq('id', insightId)
+}
 
   if (!course) return <h1>Course not found</h1>
 
@@ -199,11 +214,11 @@ export default function InsightsPage() {
                   {insight.instructor || 'Instructor not specified'}
                 </span>
                 <button
-                  className={styles.helpfulBtn}
-                  onClick={() => handleHelpful(insight.id, insight.helpful_count)}
-                >
-                  👍 Helpful ({insight.helpful_count})
-                </button>
+  className={`${styles.helpfulBtn} ${likedPosts.has(insight.id) ? styles.helpfulActive : ''}`}
+  onClick={() => handleHelpful(insight.id, insight.helpful_count)}
+>
+  {likedPosts.has(insight.id) ? '👍 Helpful' : '👍 Helpful'} ({insight.helpful_count})
+</button>
               </div>
             </div>
           ))}

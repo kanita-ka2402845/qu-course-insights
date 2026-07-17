@@ -1,0 +1,249 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal {
+   background: #fceffc;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  margin: 0 0 4px;
+}
+
+.modalSub {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+.closeBtn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #555;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  padding: .75rem 1.25rem;
+  border-bottom: 0.5px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.editToggle {
+  font-size: 12px;
+  color: #7F77DD;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-style: normal;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 0 2px;
+  text-decoration: underline;
+}
+
+.body {
+  overflow-y: auto;
+  flex: 1;
+  padding: .75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section {}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0 0 8px;
+}
+
+.singleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 0.5px solid #f5f5f5;
+  gap: 12px;
+}
+
+.singleRow:last-of-type {
+  border-bottom: none;
+}
+
+.multiRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 7px 0;
+  border-bottom: 0.5px solid #f5f5f5;
+}
+
+.label {
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.weight {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.rule {
+  font-size: 11px;
+  color: #bbb;
+  font-style: italic;
+}
+
+.singleInput {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.input {
+  width: 64px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  font-size: 13px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.scoreInputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.smallInput {
+  width: 50px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  font-size: 12px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.outOf {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.weightEdit {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.weightEditLabel {
+  font-size: 11px;
+  color: #bbb;
+  font-style: italic;
+}
+
+.weightInput {
+  width: 52px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 0.5px solid #e0ade0;
+  font-size: 12px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #555;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.resultLeft {}
+
+.resultLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 2px;
+}
+
+.resultSub {
+  font-size: 11px;
+  color: #bbb;
+  margin: 0;
+  font-style: italic;
+}
+
+.resultVal {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.finalDisclaimer {
+  font-size: 11px;
+  color: #bbb;
+  font-style: italic;
+  text-align: center;
+  padding: 0 1.25rem .75rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}

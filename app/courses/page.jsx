@@ -3,6 +3,7 @@ import courses from '@/data/courses.json'
 import styles from './page.module.css'
 import CourseCard from "../../components/CourseCard"
 import { useState, useMemo } from 'react'
+import Link from 'next/link'
 
 function extractNumber(code) {
   const match = code.match(/\d+/)
@@ -39,6 +40,14 @@ export default function CoursesPage() {
 
   return (
     <main className={styles.page}>
+<nav className={styles.navbar}>
+  <span className={styles.navLogo}>QU Course Insights 🌸</span>
+  <Link href="/planner" className={styles.navNoor}>ن &nbsp; Plan with Noor</Link>
+</nav>
+<div className={styles.prayer}>
+    <p>🌙 &nbsp; Remember us in your prayers &nbsp; 🌙</p>
+  </div>  
+      
       <div className={styles.pageHeader}>
         <h2 className={styles.heading}>CS Courses</h2>
         <a
@@ -95,22 +104,30 @@ export default function CoursesPage() {
   <p className={styles.comingSoonText}>More CS courses coming soon!! Stay tuned!</p>
 </div>
 
-<div className={styles.majorRequest}>
-  <p className={styles.majorTitle}>Don't see your major?</p>
-  <p className={styles.majorSub}>
-    We're expanding beyond CS. If you'd like to see your major on QU Course Insights — 
-    or want to contribute course info for your department — let us know.
+<footer className={styles.footer}>
+  <div className={styles.footerBtns}>
+    <a
+      href="https://forms.gle/hjHbayc4wKfLvWwq7"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.footerBtn}
+    >
+      💌 Help us improve
+    </a>
+    <a
+      href="https://forms.gle/i9uzJD4625YExhng8"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.footerBtn}
+    >
+      📚 Don't see your major?
+    </a>
+  </div>
+  <p className={styles.footerMsg}>
+    built by students who've been there — for students who are getting there 💕
   </p>
-  
-  <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSfrXipA8bTMI15YUM4dJlYsuh3w4cxo6ZWHgo91e2uGTwvppg/viewform?usp=publish-editor"
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.majorBtn}
-  >
-    Request your major →
-  </a>
-</div>
+  <p className={styles.footerArabic}>بارك الله فيكم</p>
+</footer>
 
     </main>
   )
