@@ -8,7 +8,7 @@
   }
   
   .heading {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -67,7 +67,7 @@
 }
 
 .contributeBtn {
-  font-size: 12px;
+  font-size: 14px;
   color: #888;
   text-decoration: none;
   border: 0.5px solid #ddd;
@@ -109,20 +109,20 @@
 .prayer {
   text-align: center;
   padding: .45rem 0;
-  border-bottom: 0.5px solid rgba(255,255,255,0.2);
+  border-top: 0.5px solid rgba(255,255,255,0.2);
   margin: 0 auto 1.5rem;
   max-width: 960px;
   width: 100%;
 }
 
 .navLogo {
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 600;
   color: #fff;
 }
 
 .navNoor {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,0.9);
   text-decoration: none;
   border: 1px solid rgba(255,255,255,0.45);
@@ -137,7 +137,7 @@
 
 
 .prayer p {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,0.88);
   font-style: italic;
   margin: 0;
@@ -162,7 +162,7 @@
 }
 
 .footerBtn {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,0.85);
   border: 1px solid rgba(255,255,255,0.4);
   border-radius: 20px;
@@ -179,7 +179,7 @@
 }
 
 .footerMsg {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255,255,255,0.7);
   font-style: italic;
   text-align: center;
@@ -187,7 +187,7 @@
 }
 
 .footerArabic {
-  font-size: 13px;
+  font-size: 18px;
   color: rgba(255,255,255,0.6);
   margin: 0;
 }

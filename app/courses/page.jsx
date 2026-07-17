@@ -41,7 +41,7 @@ export default function CoursesPage() {
   return (
     <main className={styles.page}>
 <nav className={styles.navbar}>
-  <span className={styles.navLogo}>QU Course Insights 🌸</span>
+  <span className={styles.navLogo}>QU Course Insights 💐</span>
   <Link href="/planner" className={styles.navNoor}>ن &nbsp; Plan with Noor</Link>
 </nav>
 <div className={styles.prayer}>
