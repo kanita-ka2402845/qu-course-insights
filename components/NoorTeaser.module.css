@@ -1,0 +1,136 @@
+.wrap {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 20px;
+  color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 2px;
+}
+
+.sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+}
+
+.body {
+  font-size: 13px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.2);
+}
+
+.entryPoints {
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+}
+
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  opacity: 0.6;
+  position: relative;
+}
+
+.entry::after {
+  content: 'coming soon';
+  position: absolute;
+  right: 0;
+  top: 12px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+.entryIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.entryTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 3px;
+}
+
+.entrySub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.divider {
+  height: 0.5px;
+  background: rgba(255,255,255,0.15);
+  margin: 0;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 0.5px solid rgba(255,255,255,0.2);
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  font-size: 13px;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.ctaBtn {
+  font-size: 12px;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  white-space: nowrap;
+  transition: background .15s ease;
+  flex-shrink: 0;
+}
+
+.ctaBtn:hover {
+  background: rgba(255,255,255,0.25);
+}

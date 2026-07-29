@@ -1,0 +1,213 @@
+:global(*) {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  background-image: linear-gradient(to top, #f4ccc1 0%, #e0ade0 100%);
+  margin: 0;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.back {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back:hover { color: #fff; }
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 0;
+}
+
+.icon {
+  font-size: 28px;
+  color: rgba(255,255,255,0.7);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  margin: 0;
+  font-style: italic;
+}
+
+.teaser {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.teaserBody {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.entryPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(255,255,255,0.25);
+}
+
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 1rem 1.1rem;
+  opacity: 0.65;
+}
+
+.entryIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.entryText {
+  flex: 1;
+}
+
+.entryTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.entrySub {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.comingSoon {
+  font-size: 12px;
+  color: #fff;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 0.5px;
+  background: rgba(255,255,255,0.2);
+}
+
+.hadith {
+  background: rgba(255,255,255,0.12);
+  border-left: 3px solid rgba(255,255,255,0.5);
+  border-radius: 0 10px 10px 0;
+  padding: .85rem 1rem;
+}
+
+.hadithText {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin: 0 0 5px;
+  font-style: italic;
+}
+
+.hadithSource {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  margin: 0;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 1rem;
+  border-top: 0.5px solid rgba(255,255,255,0.2);
+}
+
+.ctaTop {}
+
+.ctaTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.ctaBody {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  font-size: 13px;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 20px;
+  padding: 7px 16px;
+  text-decoration: none;
+  transition: background .15s ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover { background: rgba(255,255,255,0.25); }
+
+.shareBtn {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  transition: background .15s ease;
+  white-space: nowrap;
+}
+
+.shareBtn:hover { background: rgba(255,255,255,0.12); }

@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import CourseCard from "../../components/CourseCard"
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import NoorTeaser from '@/components/NoorTeaser'
 
 function extractNumber(code) {
   const match = code.match(/\d+/)
