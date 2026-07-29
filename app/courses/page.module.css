@@ -194,11 +194,11 @@
 
 @media (max-width: 480px) {
     .navLogo {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .navNoor {
-        font-size: 12px;
+        font-size: 14px;
         padding: 4px 10px;
     }
 }
