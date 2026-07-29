@@ -1,16 +1,17 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
+import { use } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import courses from '@/data/courses.json'
+import { timeAgo } from '@/lib/timeAgo'
 import styles from './insights.module.css'
 
 const TYPES = ['Study advice', 'Instructor tip', 'Workload', 'General']
-const YEARS = [2026,2025, 2024, 2023, 2022,2021,2020]
+const YEARS = [2026, 2025, 2024, 2023, 2022]
 
-export default function InsightsPage() {
-  const { id } = useParams()
+export default function InsightsPage({ params }) {
+  const { id } = use(params)
   const course = courses.find(c => c.id === id)
   const [insights, setInsights] = useState([])
   const [filter, setFilter] = useState('All')
@@ -18,13 +19,15 @@ export default function InsightsPage() {
   const [showForm, setShowForm] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [likedPosts, setLikedPosts] = useState(new Set())
 
   const [form, setForm] = useState({
     content: '',
     type: '',
     instructor: '',
     semester: 'Fall',
-    year: 2025
+    year: 2025,
+    quId: ''
   })
 
   useEffect(() => {
@@ -55,54 +58,41 @@ export default function InsightsPage() {
       instructor: form.instructor || null,
       semester: form.semester,
       year: form.year,
+      qu_id: form.quId || null,
       approved: false
     })
     setSubmitting(false)
     setSubmitted(true)
     setShowForm(false)
-    setForm({ content: '', type: '', instructor: '', semester: 'Fall', year: 2025 })
+    setForm({ content: '', type: '', instructor: '', semester: 'Fall', year: 2025, quId: '' })
   }
 
-const [likedPosts, setLikedPosts] = useState(new Set())
-
-const handleHelpful = async (insightId, current) => {
-  const alreadyLiked = likedPosts.has(insightId)
-
-  const newCount = alreadyLiked ? current - 1 : current + 1
-  const newLiked = new Set(likedPosts)
-
-  if (alreadyLiked) {
-    newLiked.delete(insightId)
-  } else {
-    newLiked.add(insightId)
+  const handleHelpful = async (insightId, current) => {
+    const alreadyLiked = likedPosts.has(insightId)
+    const newCount = alreadyLiked ? current - 1 : current + 1
+    const newLiked = new Set(likedPosts)
+    alreadyLiked ? newLiked.delete(insightId) : newLiked.add(insightId)
+    setLikedPosts(newLiked)
+    setInsights(prev =>
+      prev.map(i => i.id === insightId ? { ...i, helpful_count: newCount } : i)
+    )
+    await supabase
+      .from('insights')
+      .update({ helpful_count: newCount })
+      .eq('id', insightId)
   }
-
-  setLikedPosts(newLiked)
-  setInsights(prev =>
-    prev.map(i => i.id === insightId ? { ...i, helpful_count: newCount } : i)
-  )
-
-  await supabase
-    .from('insights')
-    .update({ helpful_count: newCount })
-    .eq('id', insightId)
-}
 
   if (!course) return <h1>Course not found</h1>
 
   return (
     <main className={styles.page}>
-      <Link href={`/courses/`} className={styles.back}>
-        ← Back to courses
+      <Link href={`/courses/${id}`} className={styles.back}>
+        ← {course.code} — {course.name}
       </Link>
 
       <div className={styles.header}>
         <div>
-       <h1 className={styles.title}>Student Insights</h1>
-
-    <p className={styles.course}>
-        {course.code} • {course.name}
-    </p>
+          <h1 className={styles.title}>What students say</h1>
           <p className={styles.sub}>Real experiences from students who took this course</p>
         </div>
         <button className={styles.addBtn} onClick={() => setShowForm(!showForm)}>
@@ -116,7 +106,7 @@ const handleHelpful = async (insightId, current) => {
         </p>
         <p className={styles.hadithSource}>Authenticated — Sahih al-Albani</p>
         <p className={styles.hadithCta}>
-          Share what you know and help your fellow students.
+          Your insight is an act of Nasihah — share what you know and help your fellow students.
         </p>
       </div>
 
@@ -125,6 +115,7 @@ const handleHelpful = async (insightId, current) => {
           <p className={styles.formHadith}>
             "Allah helps His servant as long as he helps his brother." — Sahih Muslim 2699
           </p>
+
           <textarea
             className={styles.textarea}
             rows={4}
@@ -132,17 +123,22 @@ const handleHelpful = async (insightId, current) => {
             value={form.content}
             onChange={e => setForm(p => ({ ...p, content: e.target.value }))}
           />
-          <div className={styles.typeRow}>
-            {TYPES.map(t => (
-              <button
-                key={t}
-                className={`${styles.typeBtn} ${form.type === t ? styles.typeActive : ''}`}
-                onClick={() => setForm(p => ({ ...p, type: t }))}
-              >
-                {t}
-              </button>
-            ))}
+
+          <div>
+            <p className={styles.fieldLabel}>Type of insight</p>
+            <div className={styles.typeRow}>
+              {TYPES.map(t => (
+                <button
+                  key={t}
+                  className={`${styles.typeBtn} ${form.type === t ? styles.typeActive : ''}`}
+                  onClick={() => setForm(p => ({ ...p, type: t }))}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
           </div>
+
           <input
             className={styles.inputField}
             type="text"
@@ -150,6 +146,15 @@ const handleHelpful = async (insightId, current) => {
             value={form.instructor}
             onChange={e => setForm(p => ({ ...p, instructor: e.target.value }))}
           />
+
+          <input
+            className={styles.inputField}
+            type="text"
+            placeholder="QU ID (for verification only, not shown publicly)"
+            value={form.quId}
+            onChange={e => setForm(p => ({ ...p, quId: e.target.value }))}
+          />
+
           <div className={styles.metaRow}>
             <select
               className={styles.select}
@@ -158,7 +163,6 @@ const handleHelpful = async (insightId, current) => {
             >
               <option>Fall</option>
               <option>Spring</option>
-              <option>Summer</option>
             </select>
             <select
               className={styles.select}
@@ -170,7 +174,7 @@ const handleHelpful = async (insightId, current) => {
             <button
               className={styles.submitBtn}
               onClick={handleSubmit}
-              disabled={submitting}
+              disabled={submitting || !form.content.trim() || !form.type}
             >
               {submitting ? 'Submitting...' : 'Submit'}
             </button>
@@ -180,7 +184,7 @@ const handleHelpful = async (insightId, current) => {
 
       {submitted && (
         <p className={styles.successMsg}>
-          Submitted — your insight will appear after review. جزاك الله خيرًا
+          جزاك الله خيرًا — your insight will appear after review 🌸
         </p>
       )}
 
@@ -206,19 +210,21 @@ const handleHelpful = async (insightId, current) => {
             <div key={insight.id} className={styles.postCard}>
               <div className={styles.postTop}>
                 <span className={styles.postType}>{insight.type}</span>
-                <span className={styles.postMeta}>{insight.semester} {insight.year}</span>
+                <span className={styles.postMeta}>
+                  {insight.semester} {insight.year} · {timeAgo(insight.created_at)}
+                </span>
               </div>
               <p className={styles.postContent}>{insight.content}</p>
               <div className={styles.postBottom}>
                 <span className={styles.postInstructor}>
-                  {insight.instructor || 'Instructor not specified'}
+                  {insight.instructor ? `👤 ${insight.instructor}` : 'Instructor not specified'}
                 </span>
                 <button
-  className={`${styles.helpfulBtn} ${likedPosts.has(insight.id) ? styles.helpfulActive : ''}`}
-  onClick={() => handleHelpful(insight.id, insight.helpful_count)}
->
-  {likedPosts.has(insight.id) ? '👍 Helpful' : '👍 Helpful'} ({insight.helpful_count})
-</button>
+                  className={`${styles.helpfulBtn} ${likedPosts.has(insight.id) ? styles.helpfulActive : ''}`}
+                  onClick={() => handleHelpful(insight.id, insight.helpful_count)}
+                >
+                  👍 Helpful ({insight.helpful_count})
+                </button>
               </div>
             </div>
           ))}

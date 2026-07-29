@@ -170,6 +170,13 @@ body {
     color: #444;
 }
 
+.fieldLabel{
+     color: #444;
+     font-size: 14px;
+     padding-bottom: 6px;
+     margin: 0;
+}
+
 .metaRow {
     display: flex;
     gap: 8px;
