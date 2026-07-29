@@ -329,13 +329,13 @@ body {
 }
 
 @media (max-width: 480px) {
-    .nameRow {
-        flex-direction: column;
-        gap: 8px;
+    
+    .name {
+        font-size: 17px;
     }
 
     .calcBtn {
-        align-self: flex-start;
-        margin-top: 0;
+        font-size: 11px;
+        padding: 4px 10px;
     }
 }

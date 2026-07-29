@@ -133,12 +133,12 @@ export default function GradeCalculator({ assessment, courseColor, onClose }) {
 
         <div className={styles.disclaimer}>
           Pre-filled with the typical breakdown for this course.
-          If your instructor announced different weights, toggle
+          If your instructor announced different weights: 
           <button
             className={styles.editToggle}
             onClick={() => setEditingWeights(!editingWeights)}
           >
-            {editingWeights ? 'done editing' : 'edit weights'}
+            {editingWeights ? 'Done editing' : 'Edit weights'}
           </button>
           to update them.
         </div>
