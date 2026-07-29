@@ -86,8 +86,8 @@ export default function InsightsPage({ params }) {
 
   return (
     <main className={styles.page}>
-      <Link href={`/courses/${id}`} className={styles.back}>
-        ← {course.code} — {course.name}
+      <Link href={`/courses`} className={styles.back}>
+        ← Back to courses
       </Link>
 
       <div className={styles.header}>
