@@ -249,6 +249,54 @@
       "Understanding expectations for answers is important",
       "Limited coursework means less room for mistakes"
     ]
+},
+
+{
+  "id": "cmps-405",
+  "code": "CMPS 405",
+  "name": "Operating Systems",
+  "CH": "3",
+  "prerequsites": ["CMPS 303", "CMPE 263"],
+  "category": "CS",
+"bottomLine": "A challenging upper-level course that demands consistent practice, attention, and effort, and is best taken in a lighter semester.",
+  "tags": ["Challenging", "Practice-Heavy", "Upper-Level", "Effort-Intensive"],
+  "standardTags": ["Challenging", "Practice-Oriented", "Practice-Heavy"],
+  "semesters": ["Fall", "Spring"],
+  "assessment": {
+    "theory": {
+      "quizzes": {
+        "weight": 20
+      },
+      "midterm": {
+        "weight": 20
+      },
+      "final": {
+        "weight": 25
+      }
+    },
+    "lab": {
+      "assignments": {
+        "weight": 9
+      },
+      "final": {
+        "weight": 13
+      },
+      "project": {
+        "weight": 13
+      }
+    }
+  },
+  "whatToExpect": [
+    "Challenging upper-level course",
+    "Requires coding experience and consistent practice",
+    "Regular class attendance and attention to explanations are important"
+  ],
+  "insiderInfo": [
+    "Prior coding experience and familiarity with Kali Linux or Ubuntu can make the course more manageable",
+    "Attend every class and pay attention to the professor's explanations",
+    "Best taken in a semester with a lighter course load",
+    "Consider postponing it if you already have a particularly heavy semester"
+  ]
 }
 
 ]

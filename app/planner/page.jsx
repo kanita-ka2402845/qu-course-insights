@@ -83,7 +83,7 @@ export default function PlannerPage() {
             <p className={styles.ctaBody}>
               Noor's recommendations are only as good as the data behind them.
               Every insight you share, every course rating you submit, and every
-              classmate you tell about this website brings her closer to being
+              classmate you tell about this website brings them closer to being
               genuinely useful.
             </p>
           </div>
