@@ -326,3 +326,14 @@ body {
   border-color: #e0ade0;
   color: #555;
 }
+
+.para {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.para:last-child {
+  margin-bottom: 0;
+}

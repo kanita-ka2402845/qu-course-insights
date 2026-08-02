@@ -13,7 +13,10 @@ export default function CourseDetailPage({ params }) {
     const [ratings, setRatings] = useState(null)
     const [showCalculator, setShowCalculator] = useState(false)
     const [pendingVote, setPendingVote] = useState({ workload: null, difficulty: null })
-    const [voteSubmitted, setVoteSubmitted] = useState(false)
+    const [voteSubmitted, setVoteSubmitted] = useState(() => {
+      if (typeof window === 'undefined') return false
+      return Boolean(localStorage.getItem(`voted_${id}`))
+    })
 
     useEffect(() => {
       async function fetchRatings() {
@@ -36,36 +39,39 @@ export default function CourseDetailPage({ params }) {
       setPendingVote(p => ({ ...p, [type]: value }))
     }
 
+  
     const submitVote = async () => {
-      if (!pendingVote.workload && !pendingVote.difficulty) return
-      setVoteSubmitted(true)
+  if (!pendingVote.workload && !pendingVote.difficulty) return
+  setVoteSubmitted(true)
 
-      const current = ratings || { workload: {}, difficulty: {} }
+  localStorage.setItem(`voted_${id}`, 'true')
 
-      const updatedWorkload = pendingVote.workload ? {
-        ...current.workload,
-        [pendingVote.workload]: ((current.workload?.[pendingVote.workload] || 0) + 1)
-      } : current.workload
+  const current = ratings || { workload: {}, difficulty: {} }
 
-      const updatedDifficulty = pendingVote.difficulty ? {
-        ...current.difficulty,
-        [pendingVote.difficulty]: ((current.difficulty?.[pendingVote.difficulty] || 0) + 1)
-      } : current.difficulty
+  const updatedWorkload = pendingVote.workload ? {
+    ...current.workload,
+    [pendingVote.workload]: ((current.workload?.[pendingVote.workload] || 0) + 1)
+  } : current.workload
 
-      await supabase
-        .from('course_ratings')
-        .upsert({
-          course_id: id,
-          workload: updatedWorkload,
-          difficulty: updatedDifficulty
-        })
+  const updatedDifficulty = pendingVote.difficulty ? {
+    ...current.difficulty,
+    [pendingVote.difficulty]: ((current.difficulty?.[pendingVote.difficulty] || 0) + 1)
+  } : current.difficulty
 
-      setRatings(prev => ({
-        ...(prev || { workload: {}, difficulty: {} }),
-        workload: updatedWorkload,
-        difficulty: updatedDifficulty
-      }))
-    }
+  await supabase
+    .from('course_ratings')
+    .upsert({
+      course_id: id,
+      workload: updatedWorkload,
+      difficulty: updatedDifficulty
+    })
+
+  setRatings(p => ({
+    ...p,
+    workload: updatedWorkload,
+    difficulty: updatedDifficulty
+  }))
+}
 
 
 
@@ -217,6 +223,8 @@ export default function CourseDetailPage({ params }) {
   ) : (
     <p className={styles.voteThanks}>جزاك الله خيرًا — your rating helps future students 🌸</p>
   )}
+
+      <p className = {styles.voteThanks}>Note: You cannot change your rating once submitted.</p>
 </div>
 
 <div className={styles.reportSection}>

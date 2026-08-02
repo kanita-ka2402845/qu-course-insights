@@ -19,7 +19,16 @@ export default function InsightsPage({ params }) {
   const [showForm, setShowForm] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [likedPosts, setLikedPosts] = useState(new Set())
+  const [likedPosts, setLikedPosts] = useState(() => {
+    if (typeof window === 'undefined') return new Set()
+
+    try {
+      const saved = JSON.parse(localStorage.getItem('liked_insights') || '[]')
+      return new Set(saved)
+    } catch {
+      return new Set()
+    }
+  })
 
   const [form, setForm] = useState({
     content: '',
@@ -68,19 +77,28 @@ export default function InsightsPage({ params }) {
   }
 
   const handleHelpful = async (insightId, current) => {
-    const alreadyLiked = likedPosts.has(insightId)
-    const newCount = alreadyLiked ? current - 1 : current + 1
+    const storageKey = `helpful_${insightId}`
+    const alreadyLiked = likedPosts.has(insightId) || Boolean(localStorage.getItem(storageKey))
+
+    if (alreadyLiked) return
+
     const newLiked = new Set(likedPosts)
-    alreadyLiked ? newLiked.delete(insightId) : newLiked.add(insightId)
+    newLiked.add(insightId)
+
+    localStorage.setItem(storageKey, 'true')
+    localStorage.setItem('liked_insights', JSON.stringify([...newLiked]))
     setLikedPosts(newLiked)
+
     setInsights(prev =>
-      prev.map(i => i.id === insightId ? { ...i, helpful_count: newCount } : i)
+      prev.map(i => i.id === insightId ? { ...i, helpful_count: current + 1 } : i)
     )
+
     await supabase
       .from('insights')
-      .update({ helpful_count: newCount })
+      .update({ helpful_count: current + 1 })
       .eq('id', insightId)
   }
+
 
   if (!course) return <h1>Course not found</h1>
 
@@ -102,7 +120,7 @@ export default function InsightsPage({ params }) {
 
       <div className={styles.hadith}>
         <p className={styles.hadithText}>
-          "The most beloved of people to Allah are those who are most beneficial to people."
+          The most beloved of people to Allah are those who are most beneficial to people.
         </p>
         <p className={styles.hadithSource}>Authenticated — Sahih al-Albani</p>
         <p className={styles.hadithCta}>
@@ -113,7 +131,7 @@ export default function InsightsPage({ params }) {
       {showForm && (
         <div className={styles.formCard}>
           <p className={styles.formHadith}>
-            "Allah helps His servant as long as he helps his brother." — Sahih Muslim 2699
+            Allah helps His servant as long as he helps his brother. — Sahih Muslim 2699
           </p>
 
           <textarea
