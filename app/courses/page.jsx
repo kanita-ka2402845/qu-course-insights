@@ -44,7 +44,6 @@ export default function CoursesPage() {
 <nav className={styles.navbar}>
   <span className={styles.navLogo}>QU Course Insights 💐</span>
   <Link href="/planner" className={styles.navNoor}>ن &nbsp; Plan with Noor</Link>
-  <Link href= "" className = {styles.studyBtn}> ✦ Study Planner</Link>
 </nav>
 <div className={styles.prayer}>
     <p>🌙 &nbsp; Remember us in your prayers &nbsp; 🌙</p>
