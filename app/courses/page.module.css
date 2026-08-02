@@ -97,13 +97,19 @@
 }
 
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
   padding: .75rem 0;
   margin: 0 auto 0;
   max-width: 960px;
   width: 100%;
+}
+
+.navbar > :nth-child(2) {
+  margin-left: auto;
+
 }
 
 .prayer {
@@ -129,6 +135,21 @@
   border-radius: 20px;
   padding: 5px 14px;
   transition: background .15s ease;
+
+}
+
+.studyBtn{
+   font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 20px;
+  transition: background .15s ease;
+    padding: 5px 14px;
+}
+
+.studyBtn:hover{
+  background: rgba(255,255,255,0.15);
 }
 
 .navNoor:hover {

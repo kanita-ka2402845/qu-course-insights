@@ -1,6 +1,6 @@
 
 "use client"
-import { useEffect, useState, use} from 'react'
+import { use, useEffect, useState } from 'react'
 import courses from '@/data/courses.json'
 import styles from './details.module.css'
 import Link from 'next/link'
@@ -12,47 +12,61 @@ export default function CourseDetailPage({ params }) {
 
     const [ratings, setRatings] = useState(null)
     const [showCalculator, setShowCalculator] = useState(false)
+    const [pendingVote, setPendingVote] = useState({ workload: null, difficulty: null })
+    const [voteSubmitted, setVoteSubmitted] = useState(false)
+
+    useEffect(() => {
+      async function fetchRatings() {
+        const { data } = await supabase
+          .from('course_ratings')
+          .select('*')
+          .eq('course_id', id)
+          .single()
+
+        if (data) setRatings(data)
+      }
+
+      fetchRatings()
+    }, [id])
 
     const course = courses.find(c => c.id === id)
 
-    const [pendingVote, setPendingVote] = useState({ workload: null, difficulty: null })
-const [voteSubmitted, setVoteSubmitted] = useState(false)
+    const selectVote = (type, value) => {
+      if (voteSubmitted) return
+      setPendingVote(p => ({ ...p, [type]: value }))
+    }
 
-const selectVote = (type, value) => {
-  if (voteSubmitted) return
-  setPendingVote(p => ({ ...p, [type]: value }))
-}
+    const submitVote = async () => {
+      if (!pendingVote.workload && !pendingVote.difficulty) return
+      setVoteSubmitted(true)
 
-const submitVote = async () => {
-  if (!pendingVote.workload && !pendingVote.difficulty) return
-  setVoteSubmitted(true)
+      const current = ratings || { workload: {}, difficulty: {} }
 
-  const current = ratings || { workload: {}, difficulty: {} }
+      const updatedWorkload = pendingVote.workload ? {
+        ...current.workload,
+        [pendingVote.workload]: ((current.workload?.[pendingVote.workload] || 0) + 1)
+      } : current.workload
 
-  const updatedWorkload = pendingVote.workload ? {
-    ...current.workload,
-    [pendingVote.workload]: ((current.workload?.[pendingVote.workload] || 0) + 1)
-  } : current.workload
+      const updatedDifficulty = pendingVote.difficulty ? {
+        ...current.difficulty,
+        [pendingVote.difficulty]: ((current.difficulty?.[pendingVote.difficulty] || 0) + 1)
+      } : current.difficulty
 
-  const updatedDifficulty = pendingVote.difficulty ? {
-    ...current.difficulty,
-    [pendingVote.difficulty]: ((current.difficulty?.[pendingVote.difficulty] || 0) + 1)
-  } : current.difficulty
+      await supabase
+        .from('course_ratings')
+        .upsert({
+          course_id: id,
+          workload: updatedWorkload,
+          difficulty: updatedDifficulty
+        })
 
-  await supabase
-    .from('course_ratings')
-    .upsert({
-      course_id: id,
-      workload: updatedWorkload,
-      difficulty: updatedDifficulty
-    })
+      setRatings(prev => ({
+        ...(prev || { workload: {}, difficulty: {} }),
+        workload: updatedWorkload,
+        difficulty: updatedDifficulty
+      }))
+    }
 
-  setRatings(p => ({
-    ...p,
-    workload: updatedWorkload,
-    difficulty: updatedDifficulty
-  }))
-}
 
 
     if (!course) return <h1>Course not found</h1>
