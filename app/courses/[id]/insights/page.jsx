@@ -110,7 +110,8 @@ export default function InsightsPage({ params }) {
 
       <div className={styles.header}>
         <div>
-          <h1 className={styles.title}>What students say</h1>
+          <h1 className={styles.title}>What students say about </h1>
+          <h4 className={styles.course}>{course.name} ({course.code})</h4>
           <p className={styles.sub}>Real experiences from students who took this course</p>
         </div>
         <button className={styles.addBtn} onClick={() => setShowForm(!showForm)}>
