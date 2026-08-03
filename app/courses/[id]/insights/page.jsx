@@ -232,7 +232,11 @@ export default function InsightsPage({ params }) {
                   {insight.semester} {insight.year} · {timeAgo(insight.created_at)}
                 </span>
               </div>
-              <p className={styles.postContent}>{insight.content}</p>
+              <div className={styles.postContent}>
+  {insight.content.split('\n').map((para, i) =>
+    para.trim() ? <p key={i} className={styles.para}>{para}</p> : <br key={i} />
+  )}
+</div>
               <div className={styles.postBottom}>
                 <span className={styles.postInstructor}>
                   {insight.instructor ? `👤 ${insight.instructor}` : 'Instructor not specified'}
