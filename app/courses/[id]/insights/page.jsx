@@ -7,7 +7,7 @@ import courses from '@/data/courses.json'
 import { timeAgo } from '@/lib/timeAgo'
 import styles from './insights.module.css'
 
-const TYPES = ['Study advice', 'Instructor tip', 'Workload', 'General']
+const TYPES = ['Study advice', 'Instructor tip', 'Workload', 'Exam tips','General']
 const YEARS = [2026, 2025, 2024, 2023, 2022]
 
 export default function InsightsPage({ params }) {
